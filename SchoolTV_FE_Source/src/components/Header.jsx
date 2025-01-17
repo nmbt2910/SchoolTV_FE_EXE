@@ -30,7 +30,7 @@ const Header = () => {
         <i className="fas fa-tv"></i> SchoolTV
       </a>
       <nav className="nav-links">
-        <a href="#">Trang Chủ</a>
+        <a href="WatchHome">Trang Chủ</a>
         <a href="#">Khám Phá</a>
         <a href="#">Trường Học</a>
         <button id="theme-toggle" className="theme-toggle">

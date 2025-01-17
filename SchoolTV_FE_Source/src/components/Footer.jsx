@@ -28,8 +28,8 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Liên Kết</h3>
           <a href="#">Trang Chủ</a>
-          <a href="#">Tính Năng</a>
-          <a href="#">Bảng Giá</a>
+          <a href="#">Trực Tiếp</a>
+          <a href="#">Môn Học</a>
           <a href="#">Blog</a>
         </div>
         <div className="footer-section">
