@@ -1,0 +1,23 @@
+.allVideo-card-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  .allVideo-card-detail {
+    padding: 16px;
+
+    .allVideo-card-detail__stats {
+      font-size: 12px;
+      color: #888;
+    }
+  }
+}
+
+.allVideo-card-container:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
