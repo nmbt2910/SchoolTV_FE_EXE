@@ -17,7 +17,7 @@ function App() {
       element: (
         <>
           <Header /> {/* Include the Header component */}
-          <Home />   {/* Include the Home component */}
+          <WatchHome />   {/* Include the Home component */}
           <Footer /> {/* Include the Footer component */}
         </>
       ),
@@ -28,6 +28,16 @@ function App() {
         <>
           <Header /> {/* Include the Header component */}
           <WatchHome />   {/* Include the Home component */}
+          <Footer /> {/* Include the Footer component */}
+        </>
+      ),
+    },
+    {
+      path: "/businessHome",
+      element: (
+        <>
+          <Header /> {/* Include the Header component */}
+          <Home />   {/* Include the Home component */}
           <Footer /> {/* Include the Footer component */}
         </>
       ),

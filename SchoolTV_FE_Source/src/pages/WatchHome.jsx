@@ -27,7 +27,7 @@ export default function WatchHome() {
       <div className="swiper-wrapper">
         <div className="swiper-slide">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://th.bing.com/th/id/R.69d5030039448756d2f42e492eed6f69?rik=pb%2bcPexDVO8m9w&pid=ImgRaw&r=0"
             alt="Banner 1"
             className="banner-image"
           />
@@ -75,7 +75,7 @@ export default function WatchHome() {
       <div className="stream-card">
         <div className="stream-thumbnail">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://th.bing.com/th/id/R.8e4e66e9f40181fe438820b72c858c1f?rik=iUnxzImnEcS3Mw&riu=http%3a%2f%2fwww.rich-group.com.cn%2fupload%2fimage%2f20200909%2f20200909170711431143.JPG&ehk=1AmN2abj2b%2b%2ff2JCt8B1wqgcwHnFmr4%2bQz23yX%2fwetI%3d&risl=&pid=ImgRaw&r=0"
             alt="Stream thumbnail"
           />
           <div className="live-badge">LIVE</div>
@@ -93,7 +93,7 @@ export default function WatchHome() {
       <div className="stream-card">
         <div className="stream-thumbnail">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://cdn.tuoitre.vn/471584752817336320/2024/5/12/dsc8344-17154910796401821942426.jpg"
             alt="Stream thumbnail"
           />
           <div className="live-badge">LIVE</div>
@@ -221,7 +221,7 @@ export default function WatchHome() {
       <div className="video-card" data-aos="fade-up">
         <div className="video-thumbnail">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://huongnghiep.hocmai.vn/wp-content/uploads/2022/03/dh-bach-khoa-tphcm.jpeg"
             alt="Video thumbnail"
           />
           <span className="video-duration">15:24</span>
@@ -251,7 +251,7 @@ export default function WatchHome() {
       <div className="video-card" data-aos="fade-up" data-aos-delay={100}>
         <div className="video-thumbnail">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://th.bing.com/th/id/R.24559b8a6c2a76982d878d18cb564a25?rik=2a6LnBf5Dwwjgg&riu=http%3a%2f%2fnganhydakhoa.edu.vn%2fwp-content%2fuploads%2f2020%2f07%2fnganhydakhoa1-kinh-nghiem-cho-bac-si-y-khoa-640x400.jpg&ehk=fdKgbI%2bn0PLNUv3iqc513CXTbQh3i2%2bgpVprVNdNvVE%3d&risl=&pid=ImgRaw&r=0"
             alt="Video thumbnail"
           />
           <span className="video-duration">22:15</span>
@@ -281,7 +281,7 @@ export default function WatchHome() {
       <div className="video-card" data-aos="fade-up" data-aos-delay={200}>
         <div className="video-thumbnail">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://th.bing.com/th/id/OIP.z5HSKK9MY4hX2bL06q-3pAHaE8?rs=1&pid=ImgDetMain"
             alt="Video thumbnail"
           />
           <span className="video-duration">18:30</span>
@@ -321,7 +321,7 @@ export default function WatchHome() {
       <div className="post-card" data-aos="fade-up">
         <div className="post-header">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="University avatar"
             className="university-avatar"
           />
@@ -336,7 +336,7 @@ export default function WatchHome() {
             "Marketing Challenge 2023"! Tự hào về các bạn! 🏆
           </p>
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="Post image"
           />
           <div className="post-actions">
@@ -355,7 +355,7 @@ export default function WatchHome() {
       <div className="post-card" data-aos="fade-up" data-aos-delay={200}>
         <div className="post-header">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="University avatar"
             className="university-avatar"
           />
@@ -370,7 +370,7 @@ export default function WatchHome() {
             Sinh viên vui lòng truy cập cổng thông tin để đăng ký!
           </p>
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="Post image"
           />
           <div className="post-actions">
@@ -389,7 +389,7 @@ export default function WatchHome() {
       <div className="post-card" data-aos="fade-up" data-aos-delay={200}>
         <div className="post-header">
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="University avatar"
             className="university-avatar"
           />
@@ -405,7 +405,7 @@ export default function WatchHome() {
             và 3.
           </p>
           <img
-            src="https://vov2.vov.vn/sites/default/files/styles/large/public/2021-01/FPT-hoa-lac-VTN-greenmore6.jpg"
+            src="https://loremflickr.com/320/240?random=2"
             alt="Post image"
           />
           <div className="post-actions">

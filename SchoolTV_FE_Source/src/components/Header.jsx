@@ -26,11 +26,11 @@ const Header = () => {
 
   return (
     <header className="header">
-      <a href="#" className="logo">
+      <a href="watchHome" className="logo">
         <i className="fas fa-tv"></i> SchoolTV
       </a>
       <nav className="nav-links">
-        <a href="WatchHome">Trang Chủ</a>
+        <a href="businessHome">Trang Chủ</a>
         <a href="#">Khám Phá</a>
         <a href="#">Trường Học</a>
         <button id="theme-toggle" className="theme-toggle">
