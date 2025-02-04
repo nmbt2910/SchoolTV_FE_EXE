@@ -402,8 +402,7 @@ export default function WatchHome() {
             <div className="post-content">
               <p>
                 🌟 Chương trình trao đổi sinh viên với các trường đại học Nhật Bản
-                đã chính thức mở đơn! Cơ hội tuyệt vời cho các bạn sinh viên năm 2
-                và 3.
+                đã chính thức mở đơn!
               </p>
               <img
                 src="https://loremflickr.com/320/240?random=2"

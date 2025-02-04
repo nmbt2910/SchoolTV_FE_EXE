@@ -6,6 +6,7 @@ import {
 import Home from './pages/Home';
 import WatchHome from './pages/WatchHome';
 import LiveList from './pages/LiveList';
+import ChannelList from './pages/ChannelList';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -49,6 +50,16 @@ function App() {
         <>
           <Header /> {/* Include the Header component */}
           <LiveList />   {/* Include the Home component */}
+          <Footer /> {/* Include the Footer component */}
+        </>
+      ),
+    },
+    {
+      path: "/channelList",
+      element: (
+        <>
+          <Header /> {/* Include the Header component */}
+          <ChannelList />   {/* Include the Home component */}
           <Footer /> {/* Include the Footer component */}
         </>
       ),

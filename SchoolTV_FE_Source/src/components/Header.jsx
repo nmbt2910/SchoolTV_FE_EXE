@@ -32,7 +32,7 @@ const Header = () => {
       <nav className="nav-links">
         <a href="businessHome">Trang Chủ</a>
         <a href="#">Khám Phá</a>
-        <a href="#">Trường Học</a>
+        <a href="channelList">Trường Học</a>
         <button id="theme-toggle" className="theme-toggle">
           <i className="fas fa-moon"></i>
         </button>
