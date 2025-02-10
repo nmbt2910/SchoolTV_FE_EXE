@@ -7,18 +7,19 @@
   }
 
   .main-featured-video-info {
-    background-color: #f5f5f5;
+    background-color: var(--unique-video-card-bg);
     border-radius: 10px;
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    color: var(--text-color);
     
     h1 {
       margin: 0;
     }
 
     .main-featured-video-info__interaction {
-      color: #606060;
+      color: var(--video-interaction-color);
       font-size: 12px;
       p {
         margin: 0 0;
@@ -38,7 +39,7 @@
     a {
         margin-left: 10px;
         font-weight: 500;
-        color: black;
+        color: var(--text-color);
     }
 
   }

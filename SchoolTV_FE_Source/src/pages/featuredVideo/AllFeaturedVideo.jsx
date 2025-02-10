@@ -109,7 +109,7 @@ function DisplayAllVideo() {
       </div>
 
       <Flex className="featured-video__viewMore" justify="center">
-        <Button color="cyan" variant="solid">
+        <Button color="primary" variant="solid">
           Xem thêm
         </Button>
       </Flex>

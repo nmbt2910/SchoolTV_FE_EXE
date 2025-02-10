@@ -1,26 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Header.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ThemeContext } from "../context/ThemeContext";
 
 const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   useEffect(() => {
     // Initialize AOS for animations
     AOS.init({ duration: 800, once: true });
 
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-
-    // Toggle theme
-    themeToggle.addEventListener('click', () => {
-      const newTheme =
-        document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', newTheme);
-      themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    });
-
     return () => {
-      themeToggle.removeEventListener('click', () => {});
+      // Cleanup code if needed
     };
   }, []);
 
@@ -33,8 +25,8 @@ const Header = () => {
         <a href="#">Trang Chủ</a>
         <a href="#">Khám Phá</a>
         <a href="#">Trường Học</a>
-        <button id="theme-toggle" className="theme-toggle">
-          <i className="fas fa-moon"></i>
+        <button onClick={toggleTheme} className="theme-toggle">
+          {theme === "light" ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
         </button>
         <a href="#" className="cta-button primary-button">
           Đăng Nhập
