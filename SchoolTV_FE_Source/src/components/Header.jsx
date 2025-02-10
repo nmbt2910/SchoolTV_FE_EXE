@@ -3,6 +3,8 @@ import './Header.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ThemeContext } from "../context/ThemeContext";
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -28,9 +30,9 @@ const Header = () => {
         <button onClick={toggleTheme} className="theme-toggle">
           {theme === "light" ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
         </button>
-        <a href="#" className="cta-button primary-button">
+        <Link to="/login" className="cta-button primary-button">
           Đăng Nhập
-        </a>
+        </Link>
       </nav>
     </header>
   );

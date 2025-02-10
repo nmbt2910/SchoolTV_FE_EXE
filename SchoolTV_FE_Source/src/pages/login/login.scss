@@ -1,0 +1,79 @@
+.login_background {
+   background: linear-gradient(to bottom right, #ffffff, #a0c4ff);
+   background-size: cover;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.login_form {
+   background-color: white;
+   width: 25%;
+   max-width: 500px;
+   max-height: 100%;
+   border-radius: 15px;
+}
+
+.login_form h1 {
+   text-align: center;
+}
+
+.login_form p {
+   text-align: center;
+   margin-top: -17px;
+}
+
+.login_divider {
+   width: 80%;
+   margin: 20px auto;
+   border-color: black;
+}
+
+.login_input {
+   margin-left: 30px;
+}
+
+.remember-password-container {
+   display: flex;
+   justify-content: space-around;
+   margin-top: -10px;
+}
+
+.remember-password-container .ant-checkbox-wrapper {
+   margin-right: 10%;
+}
+ 
+.remember-password-container a {
+   font-size: 14px;
+   margin-left: 8%;
+   margin-right: 2%;
+   text-decoration: underline;
+}
+
+.login_btn {
+   margin: 0 auto;
+}
+
+.login_btn {
+   display: flex;
+   justify-content: center;
+   margin-top: -30px;
+}
+
+.login_btn_ant {
+   width: 85%;
+   height: 40px;
+   max-height: 400px;
+   font-size: 18px;
+}
+
+.login_register {
+   text-align: center;
+   margin-top: -28px;
+   font-size: 17px;
+}
+
+.login_register a {
+   text-decoration: underline;
+}
+

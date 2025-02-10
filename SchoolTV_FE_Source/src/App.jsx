@@ -4,6 +4,9 @@ import AllFeaturedVideo from "./pages/featuredVideo/AllFeaturedVideo";
 import PlayFeaturedVideo from "./pages/featuredVideo/PlayFeaturedVideo";
 import PageLayout from "./components/layout/PageLayout";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Login from './pages/login/login';
+import Register from './pages/register/register';
+
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +24,22 @@ function App() {
           element: <PlayFeaturedVideo />,
         },
       ],
+    },
+    {
+      path: "/login", 
+      element: (
+        <>
+          <Login />
+        </>
+      ),
+    },
+    {
+      path: "/register", 
+      element: (
+        <>
+          <Register />
+        </>
+      ),
     },
   ]);
 

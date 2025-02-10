@@ -1,0 +1,53 @@
+.register_background {
+    background: linear-gradient(to bottom right, #ffffff, #a0c4ff);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_form {
+    background-color: white; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    width: 50%; 
+    max-width: 600px;
+    max-height: 100%;
+  }
+
+.register_form h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.register_form p {
+    text-align: center;
+    margin-top: -20px;
+    font-size: 17px;
+    color: #666666;
+}
+
+.ant-form-item-label > label {
+    font-weight: 480;
+  }
+  
+.register_foot {
+    text-align: center;
+    font-size: 15px;
+    margin-top: -25px;
+}
+
+.register_signin {
+    text-decoration: underline;
+}
+
+.register_clause {
+    text-decoration: underline;
+}
+
+.ant-modal-title {
+    text-align: center;
+}
