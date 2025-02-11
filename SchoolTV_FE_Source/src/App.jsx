@@ -6,6 +6,7 @@ import PageLayout from "./components/layout/PageLayout";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Login from './pages/login/login';
 import Register from './pages/register/register';
+import SchoolChannelStudio from "./pages/school-channel/SchoolChannelStudio";
 
 
 function App() {
@@ -41,6 +42,17 @@ function App() {
         </>
       ),
     },
+
+    {
+      path: "school-studio",
+      element: <SchoolChannelStudio />,
+      // children: [
+      //   {
+      //     path: "post",
+      //     path: <SchoolChannelStudio />
+      //   }
+      // ]
+    }
   ]);
 
   return <RouterProvider router={router} />;
