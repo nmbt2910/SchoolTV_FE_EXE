@@ -10,7 +10,6 @@ const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    // Initialize AOS for animations
     AOS.init({ duration: 800, once: true });
 
     return () => {
@@ -18,9 +17,13 @@ const Header = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
-      <a href="#" className="logo">
+      <a href="/" className="logo">
         <i className="fas fa-tv"></i> SchoolTV
       </a>
       <nav className="nav-links">
@@ -30,9 +33,9 @@ const Header = () => {
         <button onClick={toggleTheme} className="theme-toggle">
           {theme === "light" ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}
         </button>
-        <Link to="/login" className="cta-button primary-button">
+        <a href="login" className="cta-button primary-button" onClick={() => setIsMenuOpen(false)}>
           Đăng Nhập
-        </Link>
+        </a>
       </nav>
     </header>
   );
