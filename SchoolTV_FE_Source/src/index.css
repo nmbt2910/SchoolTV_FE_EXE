@@ -17,6 +17,9 @@
   --border-color: #e1e8ed;
   --background-color: #ffffff;
   --video-interaction-color: #606060;
+  --unique-video-card-bg: #ffffff;
+  --form-input-bg: #ffffff;
+  --form-input-placeholder: gray;
 }
 
 [data-theme="dark"] {
@@ -32,6 +35,8 @@
   --border-color: #2a3f52;
   --background-color: #1F2937;
   --video-interaction-color: #FFFFFF;
+  --form-input-bg: #272727;
+  --form-input-placeholder: #ffffff;
 }
 
 body {

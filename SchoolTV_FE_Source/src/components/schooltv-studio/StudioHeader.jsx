@@ -41,7 +41,7 @@ function StudioHeader() {
         <Flex align="center">
           <button
             style={{ marginRight: "35px" }}
-            className="schoolStudio-main-button"
+            className="schoolStudio-switch-button"
           >
             Chuyển đến SchoolTV
           </button>

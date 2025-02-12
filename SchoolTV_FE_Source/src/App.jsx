@@ -7,6 +7,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 import SchoolChannelStudio from "./pages/school-channel/SchoolChannelStudio";
+import StudioPost from "./components/schooltv-studio/functions/StudioPost";
+import StudioVideo from "./components/schooltv-studio/functions/StudioVideo";
+import StudioLiveStream from "./components/schooltv-studio/functions/StudioLiveStream";
 
 
 function App() {
@@ -46,12 +49,22 @@ function App() {
     {
       path: "school-studio",
       element: <SchoolChannelStudio />,
-      // children: [
-      //   {
-      //     path: "post",
-      //     path: <SchoolChannelStudio />
-      //   }
-      // ]
+      children: [
+        {
+          path: "post",
+          element: <StudioPost />
+        },
+
+        {
+          path: "video",
+          element: <StudioVideo />
+        },
+
+        {
+          path: "live-stream",
+          element: <StudioLiveStream />
+        }
+      ]
     }
   ]);
 
