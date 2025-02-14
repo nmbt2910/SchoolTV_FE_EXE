@@ -27,7 +27,7 @@ function Login() {
       });
 
       if (response.status === 200 && response.data) {
-        console.log('Login response:', response.data);
+        console.log("Login response:", response.data);
 
         // Extract token and accountID from the correct structure
         const { token, account } = response.data;
@@ -37,12 +37,15 @@ function Login() {
           localStorage.setItem("accountID", account.accountID);
 
           // Store additional user info if needed
-          localStorage.setItem("userData", JSON.stringify({
-            username: account.username,
-            email: account.email,
-            fullname: account.fullname,
-            roleName: account.roleName
-          }));
+          localStorage.setItem(
+            "userData",
+            JSON.stringify({
+              username: account.username,
+              email: account.email,
+              fullname: account.fullname,
+              roleName: account.roleName,
+            })
+          );
 
           notification.success({
             message: "Đăng nhập thành công!",
@@ -53,7 +56,7 @@ function Login() {
 
           navigate("/watchHome");
         } else {
-          throw new Error('Invalid response format');
+          throw new Error("Invalid response format");
         }
       }
     } catch (error) {
@@ -61,9 +64,10 @@ function Login() {
 
       notification.error({
         message: "Đăng nhập thất bại!",
-        description: error.response?.status === 401
-          ? "Email hoặc mật khẩu của bạn đã sai! Hãy kiểm tra lại."
-          : "Có lỗi xảy ra trong quá trình đăng nhập, vui lòng thử lại.",
+        description:
+          error.response?.status === 401
+            ? "Email hoặc mật khẩu của bạn đã sai! Hãy kiểm tra lại."
+            : "Có lỗi xảy ra trong quá trình đăng nhập, vui lòng thử lại.",
         placement: "topRight",
         duration: 5,
       });
@@ -93,34 +97,36 @@ function Login() {
         <h1>Chào mừng trở lại</h1>
         <p>Đăng nhập để tiếp tục hành trình của bạn</p>
 
-        <Form.Item style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '20px'
-        }}>
+        <Form.Item
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "20px",
+          }}
+        >
           <ConfigProvider componentSize={xxl ? "middle" : "small"}>
             <Button
               type="default"
               style={{
-                width: '100%',
-                maxWidth: '320px',
-                height: '45px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px',
-                borderRadius: '10px',
-                fontSize: '1em',
-                fontWeight: '500'
+                width: "100%",
+                maxWidth: "320px",
+                height: "45px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                borderRadius: "10px",
+                fontSize: "1em",
+                fontWeight: "500",
               }}
               icon={
                 <img
                   src="https://img.icons8.com/color/24/000000/google-logo.png"
                   alt="Google Icon"
-                  style={{ width: '20px', height: '20px' }}
+                  style={{ width: "20px", height: "20px" }}
                 />
               }
-              onClick={() => window.location.href = "https://www.google.com"}
+              onClick={() => (window.location.href = "https://www.google.com")}
             >
               Tiếp tục với Google
             </Button>
@@ -165,7 +171,7 @@ function Login() {
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox>Ghi nhớ mình nhé</Checkbox>
             </Form.Item>
-            <a href="/forgot-password">Quên mật khẩu?</a>
+            <a href="/forgottenPassword">Quên mật khẩu?</a>
           </div>
         </Form.Item>
 
