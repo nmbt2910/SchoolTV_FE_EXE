@@ -4,16 +4,20 @@ import AllFeaturedVideo from "./pages/featuredVideo/AllFeaturedVideo";
 import PlayFeaturedVideo from "./pages/featuredVideo/PlayFeaturedVideo";
 import PageLayout from "./components/layout/PageLayout";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Login from './pages/login/login';
-import Register from './pages/register/register';
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
 import SchoolChannelStudio from "./pages/school-channel/SchoolChannelStudio";
 import StudioPost from "./components/schooltv-studio/functions/StudioPost";
 import StudioVideo from "./components/schooltv-studio/functions/StudioVideo";
 import StudioLiveStream from "./components/schooltv-studio/functions/StudioLiveStream";
-import WatchHome from "./pages/WatchHome";
-import LiveList from "./pages/LiveList";
-import ChannelList from "./pages/ChannelList";
-import WatchLive from "./pages/WatchLive";
+import WatchHome from "./pages/WatchHome/WatchHome";
+import LiveList from "./pages/LiveList/LiveList";
+import ChannelList from "./pages/ChannelList/ChannelList";
+import WatchLive from "./pages/WatchLive/WatchLive";
+import Home from "./pages/BusinessHome/Home";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -91,6 +95,14 @@ function App() {
           path: "/channelList",
           element: <ChannelList />,
         },
+        {
+          path: "/businessHome",
+          element: <Home />,
+        },
+        {
+          path: "/userProfile",
+          element: <UserProfile />,
+        }
       ],
     },
   ]);
