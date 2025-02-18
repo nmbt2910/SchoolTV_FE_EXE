@@ -9,6 +9,7 @@ function StudioHeader() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [countNotification, setCountNotification] = useState(0);
   const [openSmallMenu, setOpenSmallMenu] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(theme);
 
   const items = [
     {
@@ -46,12 +47,29 @@ function StudioHeader() {
   useEffect(() => {
     handleCloseMenuResize();
     window.addEventListener("resize", handleCloseMenuResize);
-
+  
     // Cleanup khi component unmount
     return () => {
       window.removeEventListener("resize", handleCloseMenuResize);
     };
   }, []);
+  
+  useEffect(() => {
+    // Update currentTheme when theme changes
+    setCurrentTheme(theme);
+  
+    // Update body's data-theme attribute
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
+  
+
+  const handleThemeToggle = () => {
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setCurrentTheme(newTheme);
+    toggleTheme();
+    document.body.setAttribute('data-theme', newTheme);
+  };
+
   return (
     <div className="studio-header-container">
       <Flex justify="space-between" align="center">
@@ -70,14 +88,11 @@ function StudioHeader() {
           </button>
 
           <button
-            onClick={toggleTheme}
+            onClick={handleThemeToggle}
             className="theme-toggle studio-header-icon"
+            aria-label={`Switch to ${currentTheme === 'light' ? 'dark' : 'light'} mode`}
           >
-            {theme === "light" ? (
-              <i className="fas fa-moon"></i>
-            ) : (
-              <i className="fas fa-sun"></i>
-            )}
+            <i className={`fas ${currentTheme === 'light' ? 'fa-moon' : 'fa-sun'}`}></i>
           </button>
 
           <Dropdown
