@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import CommunityPost from "./pages/CommunityPost/CommunityPost";
 
 function App() {
   const router = createBrowserRouter([
@@ -117,6 +118,10 @@ function App() {
         {
           path: "/userProfile",
           element: <UserProfile />,
+        },
+        {
+          path: "/communityPost",
+          element: <CommunityPost />,
         }
       ],
     },
