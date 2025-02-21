@@ -44,10 +44,6 @@ function App() {
           element: <UpComing />,
         },
         {
-          path: "pricing",
-          element: <PricingPlans />,
-        },
-        {
           path: "upcomingList",
           element: <UpComingList />,
         },
