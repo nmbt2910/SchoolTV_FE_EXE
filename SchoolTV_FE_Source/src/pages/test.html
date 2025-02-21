@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sự Kiện | SchoolTV</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    /* Base styles from your original code */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #f0f4f8;
+      --text-color: #2c3e50;
+      --bg-color: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --hover-color: #357abd;
+      --border-color: #e1e8ed;
+      --gradient-1: linear-gradient(135deg, #4a90e2, #357abd);
+      --gradient-2: linear-gradient(135deg, #6ab0ff, #4a90e2);
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #4a90e2;
+      --secondary-color: #1a2634;
+      --text-color: #e1e8ed;
+      --bg-color: #0f172a;
+      --card-bg: rgba(26, 38, 52, 0.95);
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --hover-color: #5a9de2;
+      --border-color: #2a3f52;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header styles from your original code */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 5%;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px var(--shadow-color);
+    }
+
+    /* Add new styles for the events page */
+    .events-container {
+      margin-top: 80px;
+      padding: 2rem 5%;
+    }
+
+    .search-filter-section {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px var(--shadow-color);
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .filter-options {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-button {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-button.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    .events-section {
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px var(--shadow-color);
+      transition: transform 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .status-upcoming {
+      background: #28a745;
+      color: white;
+    }
+
+    .status-past {
+      background: #6c757d;
+      color: white;
+    }
+
+    .event-date {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-title {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: var(--text-color);
+    }
+
+    .event-meta {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .event-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .event-button {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .primary-button {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .secondary-button {
+      background: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    .event-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    .modal-body {
+      margin-bottom: 1.5rem;
+    }
+
+    .event-detail-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .event-description {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+
+    .event-organizer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .organizer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-options {
+        flex-direction: column;
+      }
+
+      .event-actions {
+        flex-direction: column;
+      }
+    }
+
+    /* Pagination styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .pagination-button {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pagination-button.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+      <i class="fas fa-tv"></i>
+      SchoolTV
+    </a>
+    <nav class="nav-links">
+      <a href="#">Trang Chủ</a>
+      <a href="#">Khám Phá</a>
+      <a href="#">Trường Học</a>
+      <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="#" class="primary-button">Đăng Nhập</a>
+    </nav>
+  </header>
+
+  <main class="events-container">
+    <section class="search-filter-section">
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Tìm kiếm sự kiện...">
+        <button class="event-button primary-button">
+          <i class="fas fa-search"></i> Tìm Kiếm
+        </button>
+      </div>
+      <div class="filter-options">
+        <button class="filter-button active">Tất Cả</button>
+        <button class="filter-button">Hội Thảo</button>
+        <button class="filter-button">Lễ Tốt Nghiệp</button>
+        <button class="filter-button">Workshop</button>
+        <button class="filter-button">Ngày Hội</button>
+      </div>
+    </section>
+
+    <section class="events-section">
+      <h2 class="section-title">Sự Kiện Sắp Diễn Ra</h2>
+      <div class="events-grid">
+        <!-- Event Card 1 -->
+        <div class="event-card" data-aos="fade-up">
+          <span class="event-status status-upcoming">Sắp diễn ra</span>
+          <div class="event-date">
+            <i class="far fa-calendar"></i> 25/12/2023 - 14:00
+          </div>
+          <h3 class="event-title">Lễ Trao Bằng Tốt Nghiệp 2023</h3>
+          <p>ĐH Quốc Gia Hà Nội</p>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Hội trường A1</span>
+            <span><i class="fas fa-users"></i> 2000 người tham gia</span>
+          </div>
+          <div class="event-actions">
+            <button class="event-button primary-button" onclick="showEventDetails(1)">
+              <i class="fas fa-info-circle"></i> Chi Tiết
+            </button>
+            <button class="event-button secondary-button reminder-btn">
+              <i class="far fa-bell"></i> Đặt Lịch Nhắc
+            </button>
+          </div>
+        </div>
+
+        <!-- Event Card 2 -->
+        <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="event-status status-upcoming">Sắp diễn ra</span>
+          <div class="event-date">
+            <i class="far fa-calendar"></i> 27/12/2023 - 09:00
+          </div>
+          <h3 class="event-title">Hội Thảo: Trí Tuệ Nhân Tạo và Tương Lai</h3>
+          <p>ĐH Bách Khoa Hà Nội</p>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Phòng Hội Thảo B3</span>
+            <span><i class="fas fa-users"></i> 500 người tham gia</span>
+          </div>
+          <div class="event-actions">
+            <button class="event-button primary-button" onclick="showEventDetails(2)">
+              <i class="fas fa-info-circle"></i> Chi Tiết
+            </button>
+            <button class="event-button secondary-button reminder-btn">
+              <i class="far fa-bell"></i> Đặt Lịch Nhắc
+            </button>
+          </div>
+        </div>
+
+        <!-- More upcoming event cards... -->
+      </div>
+    </section>
+
+    <section class="events-section">
+      <h2 class="section-title">Sự Kiện Đã Diễn Ra</h2>
+      <div class="events-grid">
+        <!-- Past Event Card 1 -->
+        <div class="event-card" data-aos="fade-up">
+          <span class="event-status status-past">Đã kết thúc</span>
+          <div class="event-date">
+            <i class="far fa-calendar"></i> 15/12/2023 - 15:00
+          </div>
+          <h3 class="event-title">Workshop: Digital Marketing Trends 2024</h3>
+          <p>ĐH Ngoại Thương</p>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Hội trường C2</span>
+            <span><i class="fas fa-users"></i> 300 người đã tham gia</span>
+          </div>
+          <div class="event-actions">
+            <button class="event-button primary-button" onclick="showEventDetails(3)">
+              <i class="fas fa-info-circle"></i> Xem Lại
+            </button>
+          </div>
+        </div>
+
+        <!-- More past event cards... -->
+      </div>
+    </section>
+
+    <div class="pagination">
+      <button class="pagination-button active">1</button>
+      <button class="pagination-button">2</button>
+      <button class="pagination-button">3</button>
+      <button class="pagination-button">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+      <button class="pagination-button">10</button>
+    </div>
+  </main>
+
+  <div class="modal" id="eventModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="event-title">Chi Tiết Sự Kiện</h2>
+        <button class="close-button" onclick="closeEventDetails()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="https://picsum.photos/800/400" alt="Event image" class="event-detail-image">
+        <div class="event-date">
+          <i class="far fa-calendar"></i> <span id="modalEventDate"></span>
+        </div>
+        <h3 class="event-title" id="modalEventTitle"></h3>
+        <div class="event-organizer">
+          <img src="https://picsum.photos/100/100" alt="Organizer avatar" class="organizer-avatar">
+          <div>
+            <h4>Đơn Vị Tổ Chức</h4>
+            <p id="modalEventOrganizer"></p>
+          </div>
+        </div>
+        <div class="event-description" id="modalEventDescription">
+          <!-- Event description will be inserted here -->
+        </div>
+        <div class="event-meta">
+          <span><i class="fas fa-map-marker-alt"></i> <span id="modalEventLocation"></span></span>
+          <span><i class="fas fa-users"></i> <span id="modalEventParticipants"></span></span>
+        </div>
+      </div>
+      <div class="event-actions">
+        <button class="event-button primary-button reminder-btn">
+          <i class="far fa-bell"></i> Đặt Lịch Nhắc
+        </button>
+        <button class="event-button secondary-button" onclick="closeEventDetails()">
+          <i class="fas fa-times"></i> Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.setAttribute('data-theme',
+        document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      );
+      themeIcon.className = document.body.getAttribute('data-theme') === 'dark' ?
+        'fas fa-sun' : 'fas fa-moon';
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-button').forEach(button => {
+      button.addEventListener('click', function () {
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        // Add filter logic here
+      });
+    });
+
+    // Reminder Button Functionality
+    document.querySelectorAll('.reminder-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        this.innerHTML = '<i class="fas fa-check"></i> Đã đặt lịch';
+        this.style.background = '#28a745';
+        this.disabled = true;
+      });
+    });
+
+    // Event Details Modal
+    function showEventDetails(eventId) {
+      const modal = document.getElementById('eventModal');
+      const eventData = getEventData(eventId); // Function to get event data
+
+      // Populate modal with event data
+      document.getElementById('modalEventDate').textContent = eventData.date;
+      document.getElementById('modalEventTitle').textContent = eventData.title;
+      document.getElementById('modalEventOrganizer').textContent = eventData.organizer;
+      document.getElementById('modalEventDescription').textContent = eventData.description;
+      document.getElementById('modalEventLocation').textContent = eventData.location;
+      document.getElementById('modalEventParticipants').textContent = eventData.participants;
+
+      modal.style.display = 'flex';
+    }
+
+    function closeEventDetails() {
+      document.getElementById('eventModal').style.display = 'none';
+    }
+
+    // Mock function to get event data
+    function getEventData(eventId) {
+      // This would typically fetch data from a server
+      return {
+        date: '25/12/2023 - 14:00',
+        title: 'Lễ Trao Bằng Tốt Nghiệp 2023',
+        organizer: 'ĐH Quốc Gia Hà Nội',
+        description: 'Buổi lễ trao bằng tốt nghiệp cho sinh viên khóa 2019-2023. Chương trình bao gồm các hoạt động...',
+        location: 'Hội trường A1',
+        participants: '2000 người tham gia'
+      };
+    }
+
+    // Search Functionality
+    const searchInput = document.querySelector('.search-input');
+    searchInput.addEventListener('input', function (e) {
+      const searchTerm = e.target.value.toLowerCase();
+      // Add search logic here
+    });
+
+    // Pagination
+    document.querySelectorAll('.pagination-button').forEach(button => {
+      button.addEventListener('click', function () {
+        if (!this.classList.contains('active')) {
+          document.querySelectorAll('.pagination-button').forEach(btn =>
+            btn.classList.remove('active'));
+          this.classList.add('active');
+          // Add pagination logic here
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

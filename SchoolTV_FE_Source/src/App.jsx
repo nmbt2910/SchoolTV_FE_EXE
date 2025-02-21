@@ -13,6 +13,9 @@ import Footer from "./components/Footer";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import UpComing from "./pages/upcoming/upcoming";
+import UpComingList from "./pages/upcomingList/upcomingList";
+import PricingPlans from "./pages/pricing/pricing";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +39,18 @@ function App() {
       path: "",
       element: <PageLayout />,
       children: [
+        {
+          path: "upcoming",
+          element: <UpComing />,
+        },
+        {
+          path: "pricing",
+          element: <PricingPlans />,
+        },
+        {
+          path: "upcomingList",
+          element: <UpComingList />,
+        },
         {
           path: "featured-video",
           element: <AllFeaturedVideo />,

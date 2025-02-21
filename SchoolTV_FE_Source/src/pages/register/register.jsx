@@ -24,13 +24,13 @@ function Register() {
   useEffect(() => {
     // Create background bubbles
     const createBackgroundBubbles = () => {
-      const background = document.createElement('div');
-      background.className = 'background-animation';
+      const background = document.createElement("div");
+      background.className = "background-animation";
       const bubbleCount = 15;
 
       for (let i = 0; i < bubbleCount; i++) {
-        const bubble = document.createElement('div');
-        bubble.className = 'moving-bubble';
+        const bubble = document.createElement("div");
+        bubble.className = "moving-bubble";
 
         const size = Math.random() * 100 + 50;
         const left = Math.random() * 100;
@@ -46,7 +46,7 @@ function Register() {
         background.appendChild(bubble);
       }
 
-      const container = document.querySelector('.register_background');
+      const container = document.querySelector(".register_background");
       container.insertBefore(background, container.firstChild);
     };
 
@@ -129,19 +129,21 @@ function Register() {
   return (
     <div className="register_background">
       <div className="register_form">
-        <Form
-          layout="vertical"
-          onFinish={handleSubmit}
-        >
+        <Form layout="vertical" onFinish={handleSubmit}>
           <h1>Hãy bắt đầu với Một tài khoản mới</h1>
-          <p>Tham gia SchoolTV ngay hôm nay để bắt đầu một hành trình tại đại học của bạn một cách hoàn hảo nhất!</p>
+          <p>
+            Tham gia SchoolTV ngay hôm nay để bắt đầu một hành trình tại đại học
+            của bạn một cách hoàn hảo nhất!
+          </p>
 
           <Row gutter={24}>
             <Col xs={24} sm={12}>
               <Form.Item
                 label="Tên đăng nhập"
                 name="username"
-                rules={[{ required: true, message: "Vui lòng nhập tên đăng nhập" }]}
+                rules={[
+                  { required: true, message: "Vui lòng nhập tên đăng nhập" },
+                ]}
               >
                 <Input placeholder="Chọn tên đăng nhập" />
               </Form.Item>
@@ -151,7 +153,7 @@ function Register() {
                 name="email"
                 rules={[
                   { required: true, message: "Vui lòng nhập email" },
-                  { type: "email", message: "Email không hợp lệ" }
+                  { type: "email", message: "Email không hợp lệ" },
                 ]}
               >
                 <Input placeholder="Nhập email của bạn" />
@@ -162,7 +164,7 @@ function Register() {
                 name="password"
                 rules={[
                   { required: true, message: "Vui lòng nhập mật khẩu" },
-                  { min: 8, message: "Mật khẩu phải có ít nhất 8 ký tự" }
+                  { min: 8, message: "Mật khẩu phải có ít nhất 8 ký tự" },
                 ]}
               >
                 <Input.Password
@@ -186,7 +188,10 @@ function Register() {
                 name="phoneNumber"
                 rules={[
                   { required: true, message: "Vui lòng nhập số điện thoại" },
-                  { pattern: /^\d{10}$/, message: "Số điện thoại không hợp lệ" }
+                  {
+                    pattern: /^\d{10}$/,
+                    message: "Số điện thoại không hợp lệ",
+                  },
                 ]}
               >
                 <Input placeholder="Nhập số điện thoại của bạn" />
@@ -241,11 +246,7 @@ function Register() {
           </Form.Item>
 
           <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={loading}
-            >
+            <Button type="primary" htmlType="submit" loading={loading}>
               Tạo Tài Khoản
             </Button>
           </Form.Item>
@@ -265,7 +266,11 @@ function Register() {
         onOk={() => setIsModalVisible(false)}
         onCancel={() => setIsModalVisible(false)}
         footer={[
-          <Button key="ok" type="primary" onClick={() => setIsModalVisible(false)}>
+          <Button
+            key="ok"
+            type="primary"
+            onClick={() => setIsModalVisible(false)}
+          >
             Tôi đã hiểu
           </Button>,
         ]}
