@@ -1,21 +1,126 @@
-.community-post-container {
-    padding: 20px;
+.post-home {
+    padding-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 50px;  
+    
+
+    .ant-breadcrumb {
+        font-size: 15px;  
+    
+        .ant-breadcrumb-separator {
+          font-size: 15px;  
+        }
+    }
 }
 
-.post-home {
-    padding-top: 80px;
-    margin-bottom: 20px;
-    padding-left: 2px;  
+.post-form {
+    padding-left: 370px;
 }
 
 .ant-form {
     background-color: #f0f0f0;  
     padding: 20px; 
-    padding-top: 40px; 
+    padding-top: 20px; 
     border-radius: 8px; 
-    width: 98vw;
+    width: 1121px;
+}
+    
+.post-avatar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+  
+.username {
+    font-weight: bold;
+    font-size: 16px;
+}
+  
+.time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: gray;
+}
+  
+.post-content {
+    margin-top: 10px;
+}
+  
+span {
+    display: block;
+    margin-top: 5px;
+}
+  
+.hashtags {
+    color: #007BFF !important; 
+    text-decoration: underline !important; 
 }
 
-.post-avatar {
-    margin-bottom: 15px;
+.post-image {
+    margin-top: 20px;
 }
+
+.post-like {
+    display: flex;
+    gap: 20px; 
+}
+
+.post-like svg {
+    font-size: 25px; 
+}
+
+.post-save {
+    margin-left: 920px;
+}
+
+.post-cmt-container {
+    display: flex;
+    margin-left: -12px;
+    margin-top: 15px;
+}
+  
+.post-cmt-container span {
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+.post-view-cmt {
+    margin-top: 15px;
+    color: #777;
+}
+
+.post-text-area {
+    margin-top: 10px;
+}
+
+.post-text-area .ant-input {
+    background-color: #DCE3E7 !important; 
+    border-color: #ccc;       
+}
+
+.post-view-more {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    border: 1px solid #78A6D3;
+    background-color: #78A6D3;
+    width: 200px;
+    margin-left: 800px;
+    margin-top: 40px;
+    border-radius: 20px;
+    height: 50px;
+}
+  
+.post-view-more a {
+    font-size: 18px;        
+    color: white;        
+}
+  
