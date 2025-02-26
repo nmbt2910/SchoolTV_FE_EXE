@@ -15,6 +15,7 @@ import Register from "./pages/register/register";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import UpComingList from "./pages/upcomingList/upcomingList";
 import UpComingDetail from "./pages/upcomingDetail/upcomingDetail";
+import PricingPage from "./pages/pricing/pricing";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +42,10 @@ function App() {
         {
           path: "upcomingDetail",
           element: <UpComingDetail />,
+        },
+        {
+          path: "pricing",
+          element: <PricingPage />,
         },
         {
           path: "upcomingList",
