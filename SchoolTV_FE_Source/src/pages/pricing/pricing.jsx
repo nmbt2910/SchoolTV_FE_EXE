@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "./pricing.css";
 
 const PricingPage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
   const plans = [
     {
       title: "Cơ Bản",

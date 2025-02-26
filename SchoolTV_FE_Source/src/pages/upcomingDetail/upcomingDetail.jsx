@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Menu, Bell, Calendar, MapPin, Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Bell, Calendar, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import "./upcomingDetail.scss";
 
@@ -14,12 +14,7 @@ const UpComingDetail = () => {
     }
   }, []);
 
-  const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("darkMode", String(newMode));
-    document.body.classList.toggle("dark-mode");
-  };
+  
 
   return (
     <div className={`app ${darkMode ? "dark-mode" : ""}`}>

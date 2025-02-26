@@ -294,7 +294,7 @@ body {
 
 .pricing-header {
     text-align: center;
-    background: #4a90e2;
+    background: var(--primary-color);
     color: white;
     padding: 10% 5%;
     border-radius: 20px;
@@ -428,7 +428,8 @@ body {
 }
 
 .try-button:hover {
-    color: var(--hover-color);
+    background-color: var(--hover-color);
+    color: var(--text-color);
 }
 
 
