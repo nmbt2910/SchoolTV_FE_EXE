@@ -16,6 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import UpComingList from "./pages/upcomingList/upcomingList";
 import UpComingDetail from "./pages/upcomingDetail/upcomingDetail";
 import PricingPage from "./pages/pricing/pricing";
+import Checkout from "./pages/payment/payment";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,6 +47,10 @@ function App() {
         {
           path: "pricing",
           element: <PricingPage />,
+        },
+        {
+          path: "checkout",
+          element: <Checkout />,
         },
         {
           path: "upcomingList",

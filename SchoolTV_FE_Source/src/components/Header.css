@@ -42,7 +42,7 @@
 }
 
 .nav-links a:hover {
-  color: var(--bg-color);
+  color: var(--hover-color);
 }
 
 .theme-toggle {
