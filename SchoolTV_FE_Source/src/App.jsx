@@ -26,6 +26,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import CommunityPost from "./pages/CommunityPost/CommunityPost";
 import SchoolLogin from "./pages/SchoolLogin/SchoolLogin";
 import SchoolRegister from "./pages/SchoolRegister/SchoolRegister";
+import AdminPage from "./pages/AdminPage/AdminPage";
+import UserList from "./pages/AdminPage/UserList";
+import SchoolOwner from "./pages/AdminPage/SchoolOwner";
 
 const ScrollToTopWrapper = () => {
   const { pathname } = useLocation();
@@ -83,7 +86,7 @@ function App() {
           <ForgottenPassword />
         </ThemeProvider>
       ),
-    },        
+    },       
     {
       path: "school-studio",
       element: (
@@ -139,6 +142,18 @@ function App() {
         {
           path: "/watchHome",
           element: <WatchHome />,
+        },
+        {
+          path: "/adminpage",
+          element: <AdminPage />,
+        },
+        {
+          path: "/userlist",
+          element: <UserList />,
+        },
+        {
+          path: "/schoolowner",
+          element: <SchoolOwner />,
         },
         {
           path: "/liveList",

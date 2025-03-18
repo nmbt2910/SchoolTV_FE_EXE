@@ -50,10 +50,8 @@ const handleSubmit = async (e) => {
       const { token, account } = response.data;
 
       if (token && account) {
-        // Store token in localStorage
         localStorage.setItem("authToken", token);
         
-        // Store user data including the roleName
         const userData = {
           accountID: account.accountID,
           username: account.username,
@@ -71,7 +69,11 @@ const handleSubmit = async (e) => {
           duration: 3,
         });
 
-        navigate("/watchHome");
+        if (account.roleName === "Admin") {
+          navigate("/adminpage");
+        } else {
+          navigate("/watchHome"); 
+        }
       } else {
         throw new Error('Invalid response format');
       }
