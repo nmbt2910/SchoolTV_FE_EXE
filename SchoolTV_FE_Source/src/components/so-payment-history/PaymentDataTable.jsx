@@ -93,10 +93,11 @@ function PaymentDataTable() {
       status: "Hết hạn",
       duration: "2 tháng",
     },
+
   ];
   return (
     <div className="so-paymenth-history-table">
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={data}  />
     </div>
   );
 }

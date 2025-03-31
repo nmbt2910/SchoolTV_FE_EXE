@@ -2,6 +2,14 @@
   margin-top: 50px;
   width: 100%;
   overflow-x: auto;
+  transition: box-shadow 0.3s ease-in-out, background 0.1s ease-in-out;
+  margin-top: 20px;
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
 
   &::-webkit-scrollbar {
     height: 6px;
@@ -33,6 +41,8 @@
     white-space: nowrap;
     padding: 14px 10px;
     font-size: 14px;
+    background-color: var(--unique-video-card-bg);
+    color: var(--text-color);
 
     @media screen and (max-width: 768px) {
       padding: 10px 6px;
@@ -48,6 +58,8 @@
   .ant-table-tbody > tr > td {
     padding: 14px 10px;
     font-size: 14px;
+    background-color: var(--unique-video-card-bg);
+    color: var(--text-color);
 
     @media screen and (max-width: 768px) {
       padding: 10px 6px;
@@ -59,6 +71,12 @@
       font-size: 11px;
     }
   }
+
+  .ant-table-cell-row-hover {
+    background-color: var(--unique-video-card-bg) !important;
+    opacity: 0.9;
+  }
+  
 
   .so-payment-status {
     width: fit-content;
@@ -131,5 +149,13 @@
     @media screen and (max-width: 480px) {
       font-size: 9px;
     }
+  }
+
+  .ant-pagination-item-link {
+    color: var(--text-color) !important;
+  }
+
+  .disable-hover:hover {
+    background-color: var(--unique-video-card-bg) !important;
   }
 }

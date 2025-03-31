@@ -3,14 +3,13 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: #fff;
+  background-color: var(--unique-video-card-bg);
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out, background 0.1s ease-in-out;
   margin-top: 20px;
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background: #f9f9f9;
     transform: translateY(-3px);
   }
 
@@ -46,6 +45,21 @@
   @media (max-width: 576px) {
     min-width: 100%;
   }
+
+  .ant-input-affix-wrapper {
+    background-color: var(--form-input-bg);
+  }
+
+  .ant-input {
+    color: var(--text-color) !important;
+    &::placeholder {
+      color: var(--text-color);
+    }
+  }
+
+  .ant-input-clear-icon {
+    color: var(--text-color) !important;
+  }
 }
 
 .payHis-status-select {
@@ -60,6 +74,32 @@
   @media (max-width: 576px) {
     min-width: 100%;
   }
+}
+
+.ant-select-selector {
+  background-color: var(--form-input-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-select-selection-wrap {
+  background-color: var(--form-input-bg);
+  color: var(--text-color);
+}
+
+.ant-select-arrow {
+  color: var(--text-color) !important;
+}
+
+.ant-select-dropdown {
+  background-color: var(--form-input-bg) !important;
+}
+
+.ant-select-item {
+  color: var(--text-color) !important;
+}
+
+.ant-select-open .ant-select-selection-item {
+  color: var(--text-color) !important;
 }
 
 .payHis-export-all-order {

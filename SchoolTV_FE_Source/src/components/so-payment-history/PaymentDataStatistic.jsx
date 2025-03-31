@@ -44,7 +44,11 @@ function PaymentDataStatistic() {
         <Statistic
           value={102000}
           formatter={statisticNumberFormatter}
-          valueStyle={{ fontSize: "50px", fontWeight: "bold" }}
+          valueStyle={{
+            fontSize: "50px",
+            fontWeight: "bold",
+            color: "var(--text-color)",
+          }}
           className="payHis-statistic-money-display"
         />
         <p className="payHis-statistic-description">
