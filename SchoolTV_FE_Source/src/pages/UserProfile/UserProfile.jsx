@@ -17,6 +17,7 @@ import {
     GoogleOutlined
 } from '@ant-design/icons';
 import './UserProfile.css';
+import PaymentHistoryNav from '../../components/so-payment-history/PaymentHistoryNav';
 
 const UserProfile = () => {
     const [user, setUser] = useState(null);
@@ -324,6 +325,8 @@ const UserProfile = () => {
                             </div>
                         </div>
                     </div>
+
+                    <PaymentHistoryNav />
                 </div>
 
                 <div className="content-right">

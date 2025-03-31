@@ -33,6 +33,7 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import UserList from "./pages/AdminPage/UserList";
 import SchoolOwner from "./pages/AdminPage/SchoolOwner";
 import StudioVideo from "./components/schooltv-studio/functions/up-video/StudioVideo";
+import PaymentHistoryPage from "./pages/so-payment-history/PaymentHistoryPage";
 
 
 
@@ -91,6 +92,15 @@ function App() {
         <ThemeProvider>
           <ScrollToTopWrapper />
           <ForgottenPassword />
+        </ThemeProvider>
+      ),
+    },
+    {
+      path: "/so-payment-history",
+      element: (
+        <ThemeProvider>
+          <ScrollToTopWrapper />
+          <PaymentHistoryPage />
         </ThemeProvider>
       ),
     },

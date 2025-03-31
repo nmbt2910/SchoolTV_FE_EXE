@@ -1,0 +1,28 @@
+.payment-history-nav-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--user-profile-icon-color) !important;
+  font-size: 1.25rem;
+}
+
+.payHis-detail-btn {
+  padding: 5px 8px;
+  border: 2px solid #008b8b;
+  border-radius: 8px;
+  background: transparent;
+  color: #008b8b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #008b8b;
+    color: white;
+  }
+}

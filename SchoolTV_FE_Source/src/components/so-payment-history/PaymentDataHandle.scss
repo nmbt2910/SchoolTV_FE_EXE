@@ -1,0 +1,122 @@
+.so-payment-history-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out, background 0.1s ease-in-out;
+  margin-top: 20px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #f9f9f9;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 1024px) {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    gap: 10px;
+  }
+}
+
+.payHis-search-handle {
+  flex: 2;
+  min-width: 200px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: calc(50% - 5px);
+  }
+
+  @media (max-width: 576px) {
+    min-width: 100%;
+  }
+}
+
+.payHis-status-select {
+  flex: 0.5;
+  min-width: 120px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: calc(50% - 5px);
+  }
+
+  @media (max-width: 576px) {
+    min-width: 100%;
+  }
+}
+
+.payHis-export-all-order {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background-color: #5783db;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  min-width: 160px;
+
+  &:hover {
+    background-color: #4672c4;
+    transform: translateY(-2px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: skewX(-20deg);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, left 0.5s ease-in-out;
+  }
+
+  &:hover::after {
+    left: 100%;
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    flex: 1;
+    min-width: 100%;
+  }
+
+  @media (max-width: 1150px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
+}

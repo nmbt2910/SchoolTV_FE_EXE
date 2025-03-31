@@ -1,0 +1,234 @@
+.so-payment-history-statistic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  padding: 20px 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .payHis-statistic-quantity {
+    position: relative;
+    width: 50%;
+    padding: 20px 15px;
+    background: linear-gradient(135deg, #4a90e2, #5783db);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 25px 15px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 20px 10px;
+    }
+
+    .payHis-statistic-quantity-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 100px;
+      opacity: 0.15;
+      color: white;
+
+      @media (max-width: 768px) {
+        font-size: 80px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 60px;
+      }
+    }
+
+    .payHis-statistic-quantity-display {
+      @media (max-width: 768px) {
+        .ant-statistic-content-value {
+          font-size: 40px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .ant-statistic-content-value {
+          font-size: 32px !important;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      font-size: 16px;
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .payHis-statistic-seperate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: white;
+    color: #5783db;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @media (max-width: 480px) {
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+    }
+
+    .payHis-money-hand {
+      position: absolute;
+      bottom: 5px;
+      font-size: 40px;
+      color: #5783db;
+
+      @media (max-width: 480px) {
+        font-size: 32px;
+      }
+    }
+
+    .separate-coin-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle, gold 40%, orange 100%);
+      border-radius: 50%;
+      bottom: 15px;
+      opacity: 0;
+      animation: riseCoins 1.5s ease-in-out infinite;
+      box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+
+      @media (max-width: 480px) {
+        width: 15px;
+        height: 15px;
+        font-size: 7px;
+      }
+    }
+
+    .separate-coin-icon:nth-child(1) {
+      left: 40%;
+      animation-delay: 0s;
+    }
+
+    .separate-coin-icon:nth-child(2) {
+      left: 50%;
+      animation-delay: 0.5s;
+    }
+
+    .separate-coin-icon:nth-child(3) {
+      left: 60%;
+      animation-delay: 1s;
+    }
+  }
+
+  .payHis-statistic-money {
+    position: relative;
+    width: 50%;
+    padding: 20px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    .payHis-statistic-money-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      opacity: 0.15;
+      color: gray;
+
+      @media (max-width: 768px) {
+        font-size: 70px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 60px;
+      }
+    }
+
+    .payHis-statistic-money-display {
+      @media (max-width: 768px) {
+        .ant-statistic-content-value {
+          font-size: 40px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .ant-statistic-content-value {
+          font-size: 32px !important;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      font-size: 16px;
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@keyframes riseCoins {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0;
+  }
+}
