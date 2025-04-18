@@ -158,6 +158,35 @@ function ScheduleManualVideo(props) {
               showTime={{
                 format: "HH:mm:ss",
               }}
+              disabledDate={(current) => {
+                return current && current < dayjs().add(10, 'minute').startOf('day');
+              }}
+              disabledTime={(date) => {
+                if (date && date.isSame(dayjs(), 'day')) {
+                  return {
+                    disabledHours: () => {
+                      const currentHour = dayjs().hour();
+                      const hours = [];
+                      for (let i = 0; i < currentHour; i++) {
+                        hours.push(i);
+                      }
+                      return hours;
+                    },
+                    disabledMinutes: (selectedHour) => {
+                      if (selectedHour === dayjs().hour()) {
+                        const currentMinute = dayjs().minute();
+                        const minutes = [];
+                        for (let i = 0; i < currentMinute + 10; i++) {
+                          minutes.push(i);
+                        }
+                        return minutes;
+                      }
+                      return [];
+                    }
+                  };
+                }
+                return {};
+              }}
             />
           </Form.Item>
 
