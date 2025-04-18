@@ -120,7 +120,7 @@ function ScheduleManualVideo(props) {
             rules={[{ required: true, message: "Vui lòng chọn chương trình!" }]}
           >
             <Select
-              defaultValue={{ value: null, label: "Chọn phiên live" }}
+              defaultValue={{ value: null, label: "Chọn chương trình" }}
               options={programList}
               onChange={handleChangeProgram}
             />

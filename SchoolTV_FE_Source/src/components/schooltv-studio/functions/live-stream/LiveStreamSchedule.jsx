@@ -178,7 +178,7 @@ function LiveStreamSchedule() {
             name={"program"}
           >
             <Select
-              defaultValue={{ value: "none", label: "Chọn phiên live" }}
+              defaultValue={{ value: "none", label: "Chọn chương trình" }}
               onChange={handleChangeProgram}
               options={program}
             />
