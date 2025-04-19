@@ -4,6 +4,8 @@ import styles from './ChannelList.module.scss';
 import { ThemeContext } from '../../context/ThemeContext';
 import apiFetch from '../../config/baseAPI';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { broadcastNotification } from '../../utils/useNotificationAPI';
 
 const Toast = ({ message, type, onClose }) => {
     useEffect(() => {
@@ -46,6 +48,7 @@ const ChannelList = () => {
     const [isSearching, setIsSearching] = useState(false);
     const [liveChannels, setLiveChannels] = useState([]);
     const navigate = useNavigate();
+    const user = useSelector(state => state.userData.user);
     const [toast, setToast] = useState({
         show: false,
         message: '',
@@ -210,7 +213,7 @@ const ChannelList = () => {
         setSearchError(null);
     }, []);
 
-    const handleSubscription = useCallback(async (channelId) => {
+    const handleSubscription = useCallback(async (channelId, channelName) => {
         try {
             setIsProcessing(true);
             const token = localStorage.getItem('authToken');
@@ -244,9 +247,35 @@ const ChannelList = () => {
                     channel.id === channelId ? { ...channel, isSubscribed: true } : channel
                 ) : null
             );
-
+            
             showToast('Đăng ký theo dõi thành công', 'success');
+            const notification = {
+                accountIds: [channelId],
+                title: `Bạn có lượt đăng kí kênh mới!`,
+                message: `${user?.fullname} đã đăng kí kênh của bạn.`,
+                content: "",
+                programId: null,
+                schoolChannelId: channelId,
+            }
 
+            const broadcast = await broadcastNotification(notification);
+            if(!broadcast) {
+                throw new Error('Có lỗi khi gửi thông báo!');
+            }
+
+            const myNotification = {
+                accountIds: [user.accountID],
+                title: `Bạn vừa đăng kí kênh mới!`,
+                message: `Bạn đã đăng kí kênh ${channelName}.`,
+                content: "",
+                programId: null,
+                schoolChannelId: channelId,
+            }
+
+            const broadcast2 = await broadcastNotification(myNotification);
+            if(!broadcast2) {
+                throw new Error('Có lỗi khi gửi thông báo!');
+            }
         } catch (error) {
             console.error('Lỗi đăng ký theo dõi:', error);
             showToast('Không thể đăng ký theo dõi. Vui lòng thử lại sau', 'error');
@@ -255,7 +284,7 @@ const ChannelList = () => {
         }
     }, [schoolChannels]);
 
-    const handleUnsubscription = useCallback(async (channelId) => {
+    const handleUnsubscription = useCallback(async (channelId, channelName) => {
         try {
             setIsProcessing(true);
             const token = localStorage.getItem('authToken');
@@ -290,7 +319,31 @@ const ChannelList = () => {
             );
 
             showToast('Đã hủy theo dõi thành công', 'success');
+            const notification = {
+                accountIds: [channelId],
+                title: `Bạn vừa bị huỷ đăng kí kênh!`,
+                message: `${user?.fullname} đã huỷ đăng kí kênh của bạn.`,
+                content: "",
+                programId: null,
+                schoolChannelId: channelId,
+            }
+            const broadcast1 = await broadcastNotification(notification);
+            if(!broadcast1) {
+                throw new Error('Có lỗi khi gửi thông báo!');
+            }
+            const myNotification = {
+                accountIds: [user.accountID],
+                title: `Bạn vừa huỷ đăng kí kênh!`,
+                message: `Bạn đã huỷ đăng kí kênh ${channelName}.`,
+                content: "",
+                programId: null,
+                schoolChannelId: channelId,
+            }
 
+            const broadcast2 = await broadcastNotification(myNotification);
+            if(!broadcast2) {
+                throw new Error('Có lỗi khi gửi thông báo!');
+            }
         } catch (error) {
             console.error('Lỗi hủy theo dõi:', error);
             showToast('Không thể hủy theo dõi. Vui lòng thử lại', 'error');
@@ -298,6 +351,8 @@ const ChannelList = () => {
             setIsProcessing(false);
         }
     }, []);
+
+
 
     const SchoolCard = useMemo(() => React.memo(({ channel, onCardClick }) => (
         <motion.div
@@ -326,8 +381,8 @@ const ChannelList = () => {
                 onClick={ (e) => {
                     e.stopPropagation();
                     channel.isSubscribed ? 
-                    handleUnsubscription(channel.id) : 
-                    handleSubscription(channel.id)}}
+                    handleUnsubscription(channel.id, channel.name) : 
+                    handleSubscription(channel.id, channel.name)}}
                 disabled={isProcessing}
             >
                 {isProcessing ? 'Đang xử lý...' : (channel.isSubscribed ? 'Đã đăng ký' : 'Đăng ký')}

@@ -428,3 +428,96 @@
     text-align: center;
   }
 }
+
+/* Add these styles to your Header.css */
+.user-notification-trigger {
+  padding: 4px 8px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.user-notification-icon {
+  font-size: 20px;
+}
+
+.user-notification-icon:hover {
+  color: var(--primary-color);
+}
+
+.user-notification-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-notification-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-notification-empty {
+  padding: 16px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* Override antd dropdown styles */
+.user-notification-dropdown {
+  min-width: 300px;
+}
+
+.user-notification-dropdown .ant-dropdown-menu {
+  padding: 0;
+  background-color: var(--card-bg) !important;
+  max-height: 500px;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .user-notification-dropdown .ant-dropdown-menu {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .user-notification-empty {
+  color: var(--secondary-text);
+  background-color: var(--card-bg);
+}
+
+[data-theme='dark'] .user-notification-header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .ant-dropdown-menu-item {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+[data-theme='dark'] .ant-dropdown-menu-item:hover {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .user-notification-dropdown {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .user-notification-trigger {
+    padding: 4px;
+  }
+}
+
+.blinking-dot-badge .ant-badge-dot {
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
