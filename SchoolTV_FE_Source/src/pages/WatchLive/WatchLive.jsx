@@ -25,7 +25,7 @@ const WatchLive = () => {
   const [messageInput, setMessageInput] = useState('');
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showSchedule, setShowSchedule] = useState(false);
-  const [currentDate, setCurrentDate] = useState(dayjs());
+  const [currentDate, setCurrentDate] = useState(dayjs().tz("Asia/Bangkok"));
   const [logicDate, setLogicDate] = useState(currentDate.format("YYYY-MM-DD") || "");
   const [displaySchedule, setDisplaySchedule] = useState([]);
   const [displayIframeUrl, setDisplayIframeUrl] = useState("");
@@ -402,7 +402,8 @@ const WatchLive = () => {
   }, []);
 
   useEffect(() => {
-    const newLogicDate = currentDate.format("YYYY-MM-DD");
+    // Convert the current date (which is in local time) to GMT+7 first, then to UTC
+    const newLogicDate = dayjs.tz(currentDate, "Asia/Bangkok").utc().format("YYYY-MM-DD");
     setLogicDate(newLogicDate);
     fetchScheduleProgram(newLogicDate);
   }, [currentDate]);
@@ -443,8 +444,11 @@ const WatchLive = () => {
 
   const fetchScheduleProgram = async (date) => {
     try {
+      // Convert the GMT+7 date to UTC before sending to API
+      const utcDate = dayjs.tz(date, "Asia/Bangkok").utc().format("YYYY-MM-DD");
+      
       const response = await apiFetch(
-        `Schedule/by-channel-and-date?channelId=${channelId}&date=${encodeURIComponent(date)}`,
+        `Schedule/by-channel-and-date?channelId=${channelId}&date=${encodeURIComponent(utcDate)}`,
         { method: "GET" }
       );
   
