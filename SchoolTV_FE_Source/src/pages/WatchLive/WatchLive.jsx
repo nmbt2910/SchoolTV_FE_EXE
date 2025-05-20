@@ -444,8 +444,15 @@ const WatchLive = () => {
 
   const fetchScheduleProgram = async (date) => {
     try {
-      // Convert the GMT+7 date to UTC before sending to API
-      const utcDate = dayjs.tz(date, "Asia/Bangkok").utc().format("YYYY-MM-DD");
+    // Step 1: Get current date & time in Asia/Bangkok
+    const bangkokNow = dayjs().tz("Asia/Bangkok");
+
+    // Step 2: Convert to UTC and format as YYYY-MM-DD
+    const utcDate = bangkokNow.utc().format("YYYY-MM-DD");
+
+    // Log both for verification
+    console.log("Bangkok current datetime:", bangkokNow.format());
+    console.log("Converted UTC date:", utcDate);
       
       const response = await apiFetch(
         `Schedule/by-channel-and-date?channelId=${channelId}&date=${encodeURIComponent(utcDate)}`,
